@@ -12,8 +12,8 @@ model Customer {
 
   purchases Purchase[]
 
-  createAt DateTime @default(now())
-  updateAt DateTime @default(now()) @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 }
 
 model Product {
@@ -24,13 +24,13 @@ model Product {
 
   purchasedOn Purchase[]
 
-  createAt DateTime @default(now())
-  updateAt DateTime @default(now()) @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 }
 
 enum PurchaseStatus {
   PENDING
-  APROVED
+  APPROVED
   FAILED
 }
 
@@ -45,6 +45,6 @@ model Purchase {
   product   Product @relation(fields: [productId], references: [id])
   productId String
 
-  createAt DateTime @default(now())
-  updateAt DateTime @default(now()) @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
 }
