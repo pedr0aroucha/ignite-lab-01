@@ -8,8 +8,6 @@ export default function Home() {
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
 	const session = getSession(req, res);
 
-	// console.log(getAccessToken(req, res));
-
 	if (!session) {
 		return {
 			redirect: {
@@ -18,6 +16,8 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
 			},
 		};
 	} else {
+		console.log(await getAccessToken(req, res));
+
 		return {
 			redirect: {
 				destination: '/app',
