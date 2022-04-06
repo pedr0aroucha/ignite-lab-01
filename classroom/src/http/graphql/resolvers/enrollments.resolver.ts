@@ -17,8 +17,8 @@ export class EnrollmentsResolver {
     private studentsService: StudentsService,
   ) {}
 
-  @Query(() => [Enrollment])
   @UseGuards(AuthorizationGuard)
+  @Query(() => [Enrollment])
   async enrollments() {
     return await this.enrollmentsService.listAllEnrollments();
   }

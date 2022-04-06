@@ -4,6 +4,7 @@ import { EnrollmentsService } from '../../../services/enrollment.service';
 
 import { StudentsService } from '../../../services/students.service';
 import { AuthorizationGuard } from '../../auth/authorization.guard';
+import { AuthUser, CurrentUser } from '../../auth/current-user';
 
 import { Student } from '../models/student';
 
@@ -14,8 +15,14 @@ export class StudentsResolver {
     private enrollmentsService: EnrollmentsService,
   ) {}
 
-  @Query(() => [Student])
   @UseGuards(AuthorizationGuard)
+  @Query(() => Student)
+  async me(@CurrentUser() user: AuthUser) {
+    return await this.studentsService.getStudentByAuthUserById(user.sub);
+  }
+
+  @UseGuards(AuthorizationGuard)
+  @Query(() => [Student])
   async students() {
     return await this.studentsService.listAllStudents();
   }
