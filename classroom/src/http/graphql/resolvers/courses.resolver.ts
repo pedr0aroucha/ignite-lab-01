@@ -12,7 +12,7 @@ export class CoursesResolver {
 
   @Query(() => [Course])
   @UseGuards(AuthorizationGuard)
-  async students() {
+  async courses() {
     return await this.coursesService.listAllCourses();
   }
 }

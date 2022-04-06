@@ -7,7 +7,7 @@ import path from 'node:path';
 import { DatabaseModule } from '../database/database.module';
 import { CoursesService } from '../services/courses.service';
 import { EnrollmentsService } from '../services/enrollment.service';
-import { StudentService } from '../services/students.service';
+import { StudentsService } from '../services/students.service';
 import { CoursesResolver } from './graphql/resolvers/courses.resolver';
 import { EnrollmentsResolver } from './graphql/resolvers/enrollments.resolver';
 import { StudentsResolver } from './graphql/resolvers/students.resolver';
@@ -29,7 +29,7 @@ import { StudentsResolver } from './graphql/resolvers/students.resolver';
     // Services
     CoursesService,
     EnrollmentsService,
-    StudentService,
+    StudentsService,
   ],
 })
 export class HttpModule {}
