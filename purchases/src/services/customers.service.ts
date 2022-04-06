@@ -10,7 +10,7 @@ type CreateCustomerParams = {
 export class CustomersService {
   constructor(private prisma: PrismaService) {}
 
-  async getCustomerByAuthUserId(authUserId) {
+  async getCustomerByAuthUserId(authUserId: string) {
     return await this.prisma.customer.findUnique({
       where: {
         authUserId,
